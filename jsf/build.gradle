@@ -1,0 +1,20 @@
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'jetty'
+repositories {
+mavenCentral()
+}
+dependencies {
+compile 'javax.servlet:javax.servlet-api:3.1.0'
+compile 'com.sun.faces:jsf-api:2.2.8-15'
+compile 'org.primefaces:primefaces:5.2'
+compile 'com.sun.faces:jsf-impl:2.2.8-15'
+// all libs will be used on runtime too.
+// so we need no runtime definitions!
+// runtime 'com.sun.faces:jsf-api:2.2.8-15'
+}
+jettyRun {
+	httpPort = 8080
+	contextPath = 'tc'
+}
